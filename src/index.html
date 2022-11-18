@@ -6,19 +6,14 @@
 <body>
   <div class="container">
     <div class="jumbotron">
-      <h1>Currency Exchange</h1>
+      <h1>Currency Exchange</h1><br>
     <form action="GET" id="form">
-      <input type="radio" name="currencyChoice" value="won">
-      <label for="won">South Korean Won</label>
-      <input type="radio" name="currencyChoice" value="euro">
-      <label for="euro">Euro</label>
-      <input type="radio" name="currencyChoice" value="kuna">
-      <label for="kuna">Croatian Kuna</label>
-      <input type="radio" name="currencyChoice" value="pound">
-      <label for="pound">Lebanese Pound</label>
-      <input type="radio" name="currencyChoice" value="hongKong">
-      <label for="hongKong">Hong Kong Dollar</label>
+      <label for="currencyChoice">Currency to convert: </label>
+      <input type="text" name="currencyChoice">
     </form>
+    <div>
+      <h2 id="output"></h2>
+    </div>
   </div>
   </div>
 </body>
