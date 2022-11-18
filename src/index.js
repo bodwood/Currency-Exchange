@@ -4,36 +4,37 @@ import './css/styles.css'
 import CurrencyExchange from './js/currencyExchange.js'
 
 
-async function getCurrency(currency) {
-  const response = await CurrencyExchange.getCurrency(currency);
-  console.log(response);
-  if (response.conversion_rates) {
-    printElements(response, currency);
+async function getCurrency(currencyUSD, currencyChoice, amount) {
+  const response = await CurrencyExchange.getCurrency(currencyUSD, currencyChoice, amount);
+  if (response.conversion_result) {
+    printElements(response, currencyChoice);
   } else {
-    printError(response, currency);
+    printError(response, currencyUSD);
   }
 
 }
 
 
 //UI Logic
-
-function printElements(response, currency) {
+function printElements(response, currencyChoice) {
+  let finalConversion = response.conversion_result;
   const output = document.getElementById("output");
-  output.innerHTML = `The currency exchange from US dollars to ${currency} is ${response.conversion_rates}`
-  const userWantedCurrency = 
+  output.innerHTML = `The currency exchange from US dollars to ${currencyChoice} is ${finalConversion}`;
 }
 
-function printError(error, currency) {
+function printError(error, currencyUSD) {
   const output = document.getElementById("output");
-  output.innerHTML = `There was an error accessing the currency exchange for ${currency}: ${error}`;
+  output.innerHTML = `There was an error accessing the currency exchange for ${currencyUSD}: ${error}`;
 }
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const currency = document.getElementById("currencyChoice").value;
+  const currencyUSD = 'USD';
+  const currencyChoice = document.getElementById("currencyChoice").value;  
   document.getElementById('currencyChoice').value = null;
-  getCurrency(currency);
+  const amount = document.getElementById("amountChoice").value;
+  document.getElementById('amountChoice').value = null;
+  getCurrency(currencyUSD, currencyChoice, amount);
 }
 
 window.addEventListener("load", function () {
