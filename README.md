@@ -1,6 +1,6 @@
-# Template Repo
+# Currency Exchange
 
-#### This repo is meant to be used as a template for further applications at Epicodus
+#### This web application converts currency to dispaly the exchange rate of those currencies
 
 #### By Bodie Wood
 
@@ -9,19 +9,22 @@
 * HTML
 * CSS
 * JavaScript
+* Bootstrap
+* Webpack
+* ES Lint
+* Babel
 
 ## Description
-_Template used for further projects at Epicodus_
+_Web application that calculates the exchange rate of any two given currencies._
 
 ## Setup/Installation Requirements
 
 * _Clone project to machine_
+* _Open https://app.exchangerate-api.com/dashboard to sign-up for an API key_
+* _Navigate to root directory of project -> create a .env file -> within .env file type in "API_KEY = add your API here"_
 * _Run: ```npm install```_
+* _Run:  ```npm install dotenv-webpack@2.0.0 --save-dev```_
 * _Run: ```npm run build```_
-* _Run: ```npm install jest@24.9.0 --save-dev```_
-* _Run: ```npm install @babel/core@7.18.6 --save-dev```_
-* _Run: ```npm install @babel/plugin-transform-modules-commonjs@7.18.6 --save-dev```_
-* _Run: ```npm install bootstrap@4.5.3```_
 
 _if any packages aren't working, run the corresponding package install below_
 
@@ -40,11 +43,7 @@ _if images are needed install the following_
 * _Run: ```npm install file-loader --save-dev```_
 * _Run: ```npm install html-loader@1.3.2 --save-dev```_
 
-_for .env file_
-* _Run: ```npm install dotenv-webpack@2.0.0 --save-dev```_
-
-
-
-
 ## License
- _MIT_
+_[MIT](https://en.wikipedia.org/wiki/MIT_License)_ 
+
+Copyright (c) _2022_ _Bodie Wood_
