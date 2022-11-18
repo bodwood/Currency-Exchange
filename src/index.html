@@ -6,17 +6,18 @@
 <body>
   <div class="container">
     <div class="jumbotron">
-      <h1>Convert US Dollar to your choice of the following</h1><br>
+      <h1>US Dollar Exchange Rate</h1><br>
     <form action="GET" id="form">
-      <label for="currencyChoice">Currency to convert: </label>
-      <input type="text" id="currencyChoice">
       <label for="amountChoice">Amount to convert: </label>
-      <input type="text" id="amountChoice" name="amountChoice">
-      <button type="submit" id="submit">Submit</button>
+      <input type="text" id="amountChoice" name="amountChoice" placeholder="0.00"><br><br>
+      <label for="initialCurrency">Enter an initial currency to be coverted (please use 3 letter acronym): </label>
+      <input type="text" id="initialCurrency" minlength="3" maxlength="3" placeholder="USD"><br><br>
+      <label for="wantedCurrency">Currency to convert (please use 3 letter acronym): </label>
+      <input type="text" id="wantedCurrency" minlength="3" maxlength="3" placeholder="LAK"><br><br>
+      <button type="submit" id="submit">Submit</button><br><br>
     </form>
     <div>
       <h2 id="output"></h2>
-      <h2 id="output1"></h2>
     </div>
   </div>
   </div>

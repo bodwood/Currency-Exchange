@@ -4,37 +4,38 @@ import './css/styles.css'
 import CurrencyExchange from './js/currencyExchange.js'
 
 
-async function getCurrency(currencyUSD, currencyChoice, amount) {
-  const response = await CurrencyExchange.getCurrency(currencyUSD, currencyChoice, amount);
+async function getCurrency(initialCurrency, wantedCurrency, amount) {
+  const response = await CurrencyExchange.getCurrency(initialCurrency, wantedCurrency, amount);
   if (response.conversion_result) {
-    printElements(response, currencyChoice);
+    printElements(response, wantedCurrency);
   } else {
-    printError(response, currencyUSD);
+    printError(response, initialCurrency);
   }
 
 }
 
 
 //UI Logic
-function printElements(response, currencyChoice) {
+function printElements(response, wantedCurrency) {
   let finalConversion = response.conversion_result;
+  console.log(response)
   const output = document.getElementById("output");
-  output.innerHTML = `The currency exchange from US dollars to ${currencyChoice} is ${finalConversion}`;
+  output.innerHTML = `The currency exchange from US dollars to ${wantedCurrency} is ${finalConversion}`;
 }
 
-function printError(error, currencyUSD) {
+function printError(error, initialCurrency) {
   const output = document.getElementById("output");
-  output.innerHTML = `There was an error accessing the currency exchange for ${currencyUSD}: ${error}`;
+  output.innerHTML = `There was an error accessing the currency exchange for ${initialCurrency}: ${error}`;
 }
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const currencyUSD = 'USD';
-  const currencyChoice = document.getElementById("currencyChoice").value;  
-  document.getElementById('currencyChoice').value = null;
+  const initialCurrency = document.getElementById("initialCurrency").value;
+  const wantedCurrency = document.getElementById("wantedCurrency").value;  
+  document.getElementById('wantedCurrency').value = null;
   const amount = document.getElementById("amountChoice").value;
   document.getElementById('amountChoice').value = null;
-  getCurrency(currencyUSD, currencyChoice, amount);
+  getCurrency(initialCurrency, wantedCurrency, amount);
 }
 
 window.addEventListener("load", function () {
