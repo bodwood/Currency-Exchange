@@ -27,3 +27,9 @@ function printError(error, currency){
   output.innerHTML = `There was an error accessing the currency exchange for ${currency}: ${error}`;
 }
 
+function handleFormSubmission(event){
+  event.preventDefault();
+  const currency = document.getElementById("currencyChoice").value;
+  document.getElementById('currencyChoice').value = null;
+  getCurrency(currency);
+}
