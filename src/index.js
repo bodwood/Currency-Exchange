@@ -1,10 +1,29 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './css/styles.css'
+import CurrencyExchange from './js/currencyExchange.js'
 
 
-// async function getCurrency(){
-//   const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
-//   const jsonResponse = await response.json();
-//   return jsonResponse;
-// }
+async function getCurrency(currency){
+  const response = await CurrencyExchange.getCurrency(currency);
+  if(response.conversion_rates) {
+    printElements(response, currency);
+  }else {
+    printError(response, currency);
+  }
+
+}
+
+
+//UI Logic
+
+function printElements(response, currency){
+  const output = document.getElementById("output");
+  output.innerHTML = `The currency exchange from US dollars to ${currency} is ${response.conversion_rates}`
+}
+
+function printError(error, currency){
+  const output = document.getElementById("output");
+  output.innerHTML = `There was an error accessing the currency exchange for ${currency}: ${error}`;
+}
+
