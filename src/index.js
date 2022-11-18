@@ -4,11 +4,12 @@ import './css/styles.css'
 import CurrencyExchange from './js/currencyExchange.js'
 
 
-async function getCurrency(currency){
+async function getCurrency(currency) {
   const response = await CurrencyExchange.getCurrency(currency);
-  if(response.conversion_rates) {
+  console.log(response);
+  if (response.conversion_rates) {
     printElements(response, currency);
-  }else {
+  } else {
     printError(response, currency);
   }
 
@@ -17,19 +18,24 @@ async function getCurrency(currency){
 
 //UI Logic
 
-function printElements(response, currency){
+function printElements(response, currency) {
   const output = document.getElementById("output");
   output.innerHTML = `The currency exchange from US dollars to ${currency} is ${response.conversion_rates}`
+  const userWantedCurrency = 
 }
 
-function printError(error, currency){
+function printError(error, currency) {
   const output = document.getElementById("output");
   output.innerHTML = `There was an error accessing the currency exchange for ${currency}: ${error}`;
 }
 
-function handleFormSubmission(event){
+function handleFormSubmission(event) {
   event.preventDefault();
   const currency = document.getElementById("currencyChoice").value;
   document.getElementById('currencyChoice').value = null;
   getCurrency(currency);
 }
+
+window.addEventListener("load", function () {
+  this.document.getElementById('form').addEventListener('submit', handleFormSubmission);
+});
