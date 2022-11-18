@@ -19,7 +19,7 @@ module.exports = {
     new ESLintPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'UPDATE NAME HERE',
+      title: 'Currency-Exchange',
       template: './src/index.html',
       inject: 'body'
     })
