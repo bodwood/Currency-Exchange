@@ -23,17 +23,22 @@ function printElements(response, wantedCurrency) {
   output.innerHTML = `The currency exchange from US dollars to ${wantedCurrency} is ${finalConversion}`;
 }
 
-function printError(error, initialCurrency) {
-  const output = document.getElementById("output");
-  output.innerHTML = `There was an error accessing the currency exchange for ${initialCurrency}: ${error}`;
+function printError(error, initialCurrency, wantedCurrency) {
+  let output = document.getElementById('output');
+  if (error.toString().includes('404')) {
+    output.innerHTML = `${error} \n Either ${initialCurrency} or ${wantedCurrency} do not exist \n Please try again.`
+  } else {
+    output.innerHTML = `There was an error accessing the currency exchange for ${initialCurrency}: ${error}`;
+  }
 }
 
 function handleFormSubmission(event) {
   event.preventDefault();
   const initialCurrency = document.getElementById("initialCurrency").value;
-  const wantedCurrency = document.getElementById("wantedCurrency").value;  
-  document.getElementById('wantedCurrency').value = null;
+  const wantedCurrency = document.getElementById("wantedCurrency").value;
   const amount = document.getElementById("amountChoice").value;
+  document.getElementById('initialCurrency').value = null;
+  document.getElementById('wantedCurrency').value = null;
   document.getElementById('amountChoice').value = null;
   getCurrency(initialCurrency, wantedCurrency, amount);
 }
