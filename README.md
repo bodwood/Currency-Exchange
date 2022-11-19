@@ -19,7 +19,7 @@ _Web application that calculates the exchange rate of any two given currencies._
 
 ## Setup/Installation Requirements
 
-* _Clone project to machine_
+* _Clone project to machine: https://github.com/bodwood/Currency-Exchange_
 * _Open https://app.exchangerate-api.com/dashboard to sign-up for an API key_
 * _Navigate to root directory of project -> create a .env file -> within .env file type in "API_KEY = add your API here"_
 * _Run: ```npm install```_
