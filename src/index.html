@@ -4,8 +4,10 @@
   <title>Currency Exchange</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container text-center">
     <div class="jumbotron">
+      <div class="row text-center">
+        <div class="col-12 bottom-col">
       <h1>US Dollar Exchange Rate</h1><br>
     <form action="GET" id="form">
       <label for="amountChoice">Amount to convert: </label>
@@ -14,10 +16,12 @@
       <input type="text" id="initialCurrency" minlength="3" maxlength="3" placeholder="USD"><br><br>
       <label for="wantedCurrency">Currency to convert (please use 3 letter acronym): </label>
       <input type="text" id="wantedCurrency" minlength="3" maxlength="3" placeholder="LAK"><br><br>
-      <button type="submit" id="submit">Submit</button><br><br>
+      <button type="submit" id="submit" class="btn btn-lg btn-success">Submit</button><br><br>
     </form>
     <div>
       <h3 id="output"></h3>
+    </div>
+    </div>
     </div>
   </div>
   </div>
