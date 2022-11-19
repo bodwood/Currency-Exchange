@@ -1,0 +1,17 @@
+body{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url("../assets/images/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  color: white;
+}
+.container{
+  margin-top: 5%;
+
+}
+
+.jumbotron{
+  background: rgba(204, 204, 204, 0.41);
+  font-weight: bold;
+
+}
